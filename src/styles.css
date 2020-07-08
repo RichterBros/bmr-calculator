@@ -1,0 +1,12 @@
+body {
+  text-align: center;
+}
+.col-md-4 {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin: 4px;
+}
+
+.results {
+  display: none;
+}

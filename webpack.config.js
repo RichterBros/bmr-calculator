@@ -17,10 +17,19 @@ module.exports = {
     new UglifyJsPlugin({ sourceMap: true }),  
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'project-name',
+      title: 'weight-loss-calculator',
       template: './src/index.html',
-      inject: 'body'
-    })
+      inject: 'body',
+      chunks: ['index'],
+      filename: 'index.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'weight-loss-calculator',
+      template: './src/calories.html',
+      inject: true,
+      chunks: ['index'],
+      filename: 'calories.html'
+    }),
   ],
   module: {
     rules: [
@@ -48,7 +57,7 @@ module.exports = {
           }
         ]
       },
-
+  
       {
         test: /\.html$/,
         use: [
