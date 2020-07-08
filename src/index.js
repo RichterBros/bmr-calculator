@@ -3,7 +3,17 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { User } from '../src/weight-loss-calculator.js';
+import { getFood } from '../src/nutrition-api.js';
 
+
+async function getElements(){
+  const response = await getFood();
+  if (response === false){
+    $('.test').text(`There was an error handling your request.`);
+  } else {
+    $('.test').text(`this is a test ${response.foodNutrients[6].amount}`)
+  }
+}
 $(document).ready(function () {
   $('form#user-info').submit(function(event) {
     event.preventDefault();
@@ -38,6 +48,7 @@ $(document).ready(function () {
         $('#diet-results').text(`To gain ${(newUser.weightDifference).toFixed()} pounds in ${newUser.timeFrameDays} days you must eat ${newUser.calPerDayGain} calories per day`);
       }
     }
+    getElements();
     display(inputWeightPounds, inputGoalWeight);
   });
 });

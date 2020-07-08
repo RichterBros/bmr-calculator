@@ -15,6 +15,7 @@ export class User {
     this.bmr;
     this.calPerDayLose = 0;
     this.calPerDayGain = 0;
+    this.calPerDaySubtractor
   }
 
   calculateBMR(){
@@ -49,4 +50,11 @@ export class User {
       this.calPerDayGain = parseFloat((((this.timeFrameDays * this.bmr) + (this.weightDifference * 3500))/this.timeFrameDays).toFixed());
     }
   }
+// // Semi psuedo code
+//   foodListSubtractor(food){
+//     this.calPerDaySubtractor = this.calPerDayGain
+//     this.calPerDaySubtractor -= food-cal-value
+//   }
 }
+
+

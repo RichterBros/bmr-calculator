@@ -13,23 +13,15 @@ module.exports = {
   devServer: {                 
     contentBase: './dist'      
   },
+
   plugins: [
     new UglifyJsPlugin({ sourceMap: true }),  
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'weight-loss-calculator',
       template: './src/index.html',
-      inject: 'body',
-      chunks: ['index'],
-      filename: 'index.html'
-    }),
-    new HtmlWebpackPlugin({
-      title: 'weight-loss-calculator',
-      template: './src/calories.html',
-      inject: true,
-      chunks: ['index'],
-      filename: 'calories.html'
-    }),
+      inject: 'body'
+    })
   ],
   module: {
     rules: [
